@@ -98,7 +98,7 @@ function credits {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-			   Credits To
+			Credits To
 \033[31m#######################################################\033[m"
 echo -e "\033[36m
 Special thanks to:
@@ -139,7 +139,7 @@ function updatekali {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-			  Let's Update Kali
+			Let's Update Kali
 \033[31m#######################################################\033[m"
 select menusel in "Update Kali" "Update and Clean Kali" "Back to Main"; do
 case $menusel in
@@ -178,7 +178,7 @@ function metasploitservices {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-			 Metasploit Services
+			Metasploit Services
 \033[31m#######################################################\033[m"
 select menusel in "Start Metasploit Services" "Stop Metasploit Services" "Restart Metasploit Services" "Autostart Metasploit Services" "Back to Main"; do
 case $menusel in
@@ -223,7 +223,7 @@ function OpenVas {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-			    OpenVas Services
+			OpenVas Services
 \033[31m#######################################################\033[m"
 select menusel in "Start OpenVas Services" "Stop OpenVas Services" "Rollback V5" "Back to Main"; do
 case $menusel in
@@ -263,7 +263,7 @@ function exploitdb {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-			      Exploit-DB
+			Exploit-DB
 \033[31m#######################################################\033[m"
 select menusel in "Update Exploitdb" "Searchsploit" "Back to Main"; do
 case $menusel in
