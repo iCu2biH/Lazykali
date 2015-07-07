@@ -1094,10 +1094,13 @@ if [[ $install = Y || $install = y ]] ; then
 function updateexploitdb {
 	echo -e "\033[31mThis script will update your Exploitdb\033[m"
 	cd /usr/share/exploitdb
-	rm -rf archive.tar.bz2
-	wget http://www.exploit-db.com/archive.tar.bz2
-	tar xvfj archive.tar.bz2
-	rm -rf archive.tar.bz2
+	rm -rf platforms files.csv
+	wget --no-check-certificate http://www.exploit-db.com/archive.tar.bz2
+	mv archive.tar.bz2 archive.zip
+	unzip archive.zip
+	rm -rf archive.zip
+	mv exploit-database-master platforms
+	mv platforms/files.csv ./
 	echo -e "\e[32m[-] Done Updating Exploitdb!\e[0m"	
 }
 
