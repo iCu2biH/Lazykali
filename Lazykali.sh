@@ -98,7 +98,7 @@ function credits {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-					   Credits To
+			   Credits To
 \033[31m#######################################################\033[m"
 echo -e "\033[36m
 Special thanks to:
@@ -139,7 +139,7 @@ function updatekali {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-				Let's Update Kali
+			  Let's Update Kali
 \033[31m#######################################################\033[m"
 select menusel in "Update Kali" "Update and Clean Kali" "Back to Main"; do
 case $menusel in
@@ -178,7 +178,7 @@ function metasploitservices {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-				Metasploit Services
+			 Metasploit Services
 \033[31m#######################################################\033[m"
 select menusel in "Start Metasploit Services" "Stop Metasploit Services" "Restart Metasploit Services" "Autostart Metasploit Services" "Back to Main"; do
 case $menusel in
@@ -223,7 +223,7 @@ function OpenVas {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-				  OpenVas Services
+			    OpenVas Services
 \033[31m#######################################################\033[m"
 select menusel in "Start OpenVas Services" "Stop OpenVas Services" "Rollback V5" "Back to Main"; do
 case $menusel in
@@ -263,7 +263,7 @@ function exploitdb {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-						  Exploit-DB
+			      Exploit-DB
 \033[31m#######################################################\033[m"
 select menusel in "Update Exploitdb" "Searchsploit" "Back to Main"; do
 case $menusel in
@@ -299,7 +299,7 @@ function sniffspoof {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-				Sniffing/Spoofing/MITM
+			Sniffing/Spoofing/MITM
 \033[31m#######################################################\033[m"
 select menusel in "Yamas" "EasyCreds" "PwnStar" "Subterfuge" "Ghost-Phisher" "Hamster&Ferret" "Back to Main"; do
 case $menusel in
@@ -354,7 +354,7 @@ function payloadgen {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-				Sniffing/Spoofing/MITM
+			Sniffing/Spoofing/MITM
 \033[31m#######################################################\033[m"
 select menusel in "Simple-Ducky" "Back to Main"; do
 case $menusel in
@@ -838,8 +838,8 @@ echo -e "\e[01;32m
 echo -e "\e[1;1m   ..----=====*****(( Startup Script ))*******=====----..\e[0m"
 echo -e "\e[31m *************************************************************\e[0m"
 echo -e "\e[31m *                                                           *\e[0m"
-echo -e "\e[31m *              \e[1;37mStarting All OpenVas Services \e[0;31m               *\e[0m"
-echo -e "\e[31m *                      By soufian-hamada                         *\e[0m"
+echo -e "\e[31m *\e[1;37mStarting All OpenVas Services \e[0;31m             *\e[0m"
+echo -e "\e[31m *                 By soufian-hamada                         *\e[0m"
 echo -e "\e[31m *************************************************************\e[0m"
 
 echo
@@ -989,7 +989,7 @@ echo -e "\e[01;32m
 echo -e "\e[1;1m   ..----=====*****(( Shutdown Script ))*******=====----..\e[0m"
 echo -e "\e[31m *************************************************************\e[0m"
 echo -e "\e[31m *                                                           *\e[0m"
-echo -e "\e[31m *              \e[1;37mStopping All OpenVas Services \e[0;31m               *\e[0m"
+echo -e "\e[31m\e[1;37mStopping All OpenVas Services \e[0;31m               *\e[0m"
 echo -e "\e[31m *                                                           *\e[0m"
 echo -e "\e[31m *************************************************************\e[0m"
 
@@ -1229,7 +1229,7 @@ function extras {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-				Install Extras
+			Install Extras
 \033[31m#######################################################\033[m"
 
 select menusel in "Bleeding Edge Repos" "Hackpack" "Google Chrome" "Flash" "Smbexec" "Xssf" "Ettercap 0.76" "AngryIP Scanner" "Terminator" "Xchat" "Unicornscan" "Nautilus Open Terminal" "Simple-Ducky" "Subterfuge" "Ghost-Phisher" "Java" "Install All" "Back to Main"; do
