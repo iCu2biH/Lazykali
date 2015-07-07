@@ -11,7 +11,7 @@
 #
 ##############################################
 clear
-version="20130525"
+version="20130524"
 #some variables
 DEFAULT_ROUTE=$(ip route show default | awk '/default/ {print $3}')
 IFACE=$(ip route show | awk '(NR == 2) {print $3}')
@@ -19,9 +19,9 @@ JAVA_VERSION=`java -version 2>&1 |awk 'NR==1{ gsub(/"/,""); print $3 }'`
 MYIP=$(ip route show | awk '(NR == 2) {print $9}')
 
 if [ $UID -ne 0 ]; then
-    echo -e "\033[31This program must be run as root.This will probably fail.\033[m"
-    sleep 3
-    fi
+	echo -e "\033[31This program must be run as root.This will probably fail.\033[m"
+	sleep 3
+	fi
 
 ###### Install script if not installed
 if [ ! -e "/usr/bin/lazykali" ];then
@@ -48,24 +48,22 @@ fi
 if [[ "$silent" = "1" ]];then
 	echo "Not checking for a new version : silent mode."
 else
-	changelog=$(curl --silent -q http://yourgeekonthego.com/scripts/lazykali/changelog)
 	last_version=$(curl -q  --silent https://github.com/ruped24/Lazykali/blob/master/version |grep -m2 "js-file-line" |grep "20130525" |cut -c 69-76) #store last version number to variable
 	if [[ $last_version > $version ]];then # Comparing to current version
-		echo -e "You are running version \033[31m$version\033[m, do you want to update to \033[32m$last_version\033[m? (Y/N)
-Last changes are :
-$changelog"
+		echo -e "You are running version \033[31m$version\033[m, do you want to update to \033[32m$last_version\033[m? (Y/N) \n
+You will be on version ${last_version}:"
 		read update
 		if [[ $update = Y || $update = y ]];then
 			echo "[+] Updating script..."
-			wget -q http://yourgeekonthego.com/scripts/lazykali/lazykali.sh -O $0
-			chmod +x $0
+			wget https://github.com/ruped24/Lazykali/archive/master.zip
+			unzip master.zip && rm master.zip
+			mv Lazykali-master/Lazykali.sh /usr/bin/lazykali
+			chmod +x /usr/bin/lazykali && rm -rf Lazykali-master
 			echo "[-] Script updated !"
 			if [[ $0 != '/usr/bin/yamas' && $ask_for_install = 'y' ]];then
 				echo -e "Do you want to install it so that you can launch it with \"lazykali\" ?"
 				read install
 				if [[ $install = Y || $install = y ]];then #do not proceed to install if using installed version : updating it already "installed" it over.
-					cp $0 /usr/bin/lazykali
-					chmod +x /usr/bin/lazykali
 					echo "Script should now be installed, launching lazykali !"
 					sleep 3
 					lazykali
@@ -100,7 +98,7 @@ function credits {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-                       Credits To
+					   Credits To
 \033[31m#######################################################\033[m"
 echo -e "\033[36m
 Special thanks to:
@@ -141,7 +139,7 @@ function updatekali {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-                Let's Update Kali
+				Let's Update Kali
 \033[31m#######################################################\033[m"
 select menusel in "Update Kali" "Update and Clean Kali" "Back to Main"; do
 case $menusel in
@@ -180,7 +178,7 @@ function metasploitservices {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-                Metasploit Services
+				Metasploit Services
 \033[31m#######################################################\033[m"
 select menusel in "Start Metasploit Services" "Stop Metasploit Services" "Restart Metasploit Services" "Autostart Metasploit Services" "Back to Main"; do
 case $menusel in
@@ -225,7 +223,7 @@ function OpenVas {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-                  OpenVas Services
+				  OpenVas Services
 \033[31m#######################################################\033[m"
 select menusel in "Start OpenVas Services" "Stop OpenVas Services" "Rollback V5" "Back to Main"; do
 case $menusel in
@@ -265,7 +263,7 @@ function exploitdb {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-                          Exploit-DB
+						  Exploit-DB
 \033[31m#######################################################\033[m"
 select menusel in "Update Exploitdb" "Searchsploit" "Back to Main"; do
 case $menusel in
@@ -301,7 +299,7 @@ function sniffspoof {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-                Sniffing/Spoofing/MITM
+				Sniffing/Spoofing/MITM
 \033[31m#######################################################\033[m"
 select menusel in "Yamas" "EasyCreds" "PwnStar" "Subterfuge" "Ghost-Phisher" "Hamster&Ferret" "Back to Main"; do
 case $menusel in
@@ -356,7 +354,7 @@ function payloadgen {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-                Sniffing/Spoofing/MITM
+				Sniffing/Spoofing/MITM
 \033[31m#######################################################\033[m"
 select menusel in "Simple-Ducky" "Back to Main"; do
 case $menusel in
@@ -835,7 +833,7 @@ echo -e "\e[01;32m
 #     # #       #       #   # #  #   #  #######       # 
 #     # #       #       #    ##   # #   #     # #     # 
 ####### #       ####### #     #    #    #     #  #####  
-                                                        
+														
 \e[0m"
 echo -e "\e[1;1m   ..----=====*****(( Startup Script ))*******=====----..\e[0m"
 echo -e "\e[31m *************************************************************\e[0m"
@@ -986,7 +984,7 @@ echo -e "\e[01;32m
 #     # #       #       #   # #  #   #  #######       # 
 #     # #       #       #    ##   # #   #     # #     # 
 ####### #       ####### #     #    #    #     #  #####  
-                                                        
+														
 \e[0m"
 echo -e "\e[1;1m   ..----=====*****(( Shutdown Script ))*******=====----..\e[0m"
 echo -e "\e[31m *************************************************************\e[0m"
@@ -1231,7 +1229,7 @@ function extras {
 clear
 echo -e "
 \033[31m#######################################################\033[m
-                Install Extras
+				Install Extras
 \033[31m#######################################################\033[m"
 
 select menusel in "Bleeding Edge Repos" "Hackpack" "Google Chrome" "Flash" "Smbexec" "Xssf" "Ettercap 0.76" "AngryIP Scanner" "Terminator" "Xchat" "Unicornscan" "Nautilus Open Terminal" "Simple-Ducky" "Subterfuge" "Ghost-Phisher" "Java" "Install All" "Back to Main"; do
@@ -1365,11 +1363,11 @@ echo -e "
 |    |   \__  \ \___   <   |  ||      < \__  \ |  | |  |
 |    |___ / __ \_/    / \___  ||    |  \ / __ \|  |_|  |
 |_______ (____  /_____ \/ ____||____|__ (____  /____/__|
-        \/    \/      \/\/             \/    \/         
+		\/    \/      \/\/             \/    \/         
 
 \033[m                                        
-                   Script by soufian-hamada
-                    version : \033[32m$version\033[m
+				   Script by soufian-hamada
+					version : \033[32m$version\033[m
 Script Location : \033[32m$0\033[m
 Connection Info :-----------------------------------------------
   Gateway: \033[32m$DEFAULT_ROUTE\033[m Interface: \033[32m$IFACE\033[m My LAN Ip: \033[32m$MYIP\033[m
