@@ -11,7 +11,7 @@
 #
 ##############################################
 clear
-version="20130524"
+version="20130525"
 #some variables
 DEFAULT_ROUTE=$(ip route show default | awk '/default/ {print $3}')
 IFACE=$(ip route show | awk '(NR == 2) {print $3}')
