@@ -48,7 +48,7 @@ fi
 if [[ "$silent" = "1" ]];then
 	echo "Not checking for a new version : silent mode."
 else
-	last_version=$(curl -q  --silent https://github.com/ruped24/Lazykali/blob/master/version |grep -m2 "js-file-line" |grep "20130525" |cut -c 69-76) #store last version number to variable
+	last_version=$(curl -q  --silent https://raw.githubusercontent.com/ruped24/Lazykali/master/version) #store last version number to variable
 	if [[ $last_version > $version ]];then # Comparing to current version
 		echo -e "You are running version \033[31m$version\033[m, do you want to update to \033[32m$last_version\033[m? (Y/N) \n
 You will be on version ${last_version}:"
